@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import ToDoList from "./ToDoList";
 import { v4 as uuidv4 } from 'uuid'
-
+import './App.css'
 const LOCAL_STORAGE_KEY = 'todoApp.todos'
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
   }
 
   const handleAddTodo = e => {
-
+    e.preventDefault()
     const name = todoNameRef.current.value
     if (name === '') return
     console.log(name)
@@ -37,17 +37,26 @@ function App() {
 
   }
   const handleClearTodos = (() => {
-const newTodos = todos.filter(todo=> !todo.complete)
-setTodos(newTodos)
+    const newTodos = todos.filter(todo => !todo.complete)
+    setTodos(newTodos)
   })
 
   return (
     <div className="App">
-      <ToDoList todos={todos} toggleTodo={toggleTodo} />
-      <input ref={todoNameRef} type={'text'} />
-      <button onClick={handleAddTodo}>Add Todo</button>
-      <button onClick={handleClearTodos}>Clear todos</button>
-      <div>{todos.filter(todo => !todo.complete).length} left todos</div>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></link>
+      <div className="up">
+        <button onClick={handleClearTodos} className={'clear'}>Clear todos</button>
+        <div>{todos.filter(todo => !todo.complete).length} left todos</div>
+      </div>
+
+      <div className="form">
+        <form>
+          <input ref={todoNameRef} type={'text'} />
+          <button type={'submit'} className="add" onClick={handleAddTodo}><span className="material-icons">add</span></button>
+        </form>
+      </div>
+      <ToDoList className={'list'} todos={todos} toggleTodo={toggleTodo} />
+      <footer>&copy;Precieux 2022. All rights reserved</footer>
     </div>
   );
 }

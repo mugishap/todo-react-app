@@ -1,0 +1,71 @@
+*{
+    transition: all 0.5s ease;
+}
+body{
+    background-image: linear-gradient(to right, rgb(198, 255, 221), rgb(251, 215, 134), rgb(247, 121, 125));
+    font-family: 'Microsoft Tai Le';
+
+}
+input[type='text']{
+border: none;
+border-radius: 5px 0px 0px 5px;
+width: 100%;
+height: 2em;
+}
+.App{
+    background-color: none;
+    width: 50%;
+    margin: auto;
+}
+form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.add{
+    border: none;
+    background-color: rgb(29, 229, 96);
+    color: white;
+    width: 2.2em;
+    height: 2.2em;
+    border-radius: 0px 5px 5px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+footer{
+    margin: 100px auto;
+    color: rgba(255, 255, 255, 0.647);
+}
+
+input[type='checkbox']{
+    color: black;
+}
+.up{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+}
+.clear{
+    background-color: rgb(29, 229, 96);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 400;
+    width: 20%;
+    height: 5vh;
+}
+button:hover{
+    cursor: pointer;
+}
+input[type='checkbox']{
+    background-color: blue;
+}
