@@ -19,7 +19,10 @@ function App() {
   }, [todos])
 
   const toggleTodo = id => {
-const newTodos = [...todos]
+    const newTodos = [...todos]
+    const todo = newTodos.find(todo => todo.id === id)
+    todo.complete = !todo.complete
+    setTodos(newTodos)
   }
 
   const handleAddTodo = e => {
@@ -33,14 +36,18 @@ const newTodos = [...todos]
     todoNameRef.current.value = null
 
   }
+  const handleClearTodos = (() => {
+const newTodos = todos.filter(todo=> !todo.complete)
+setTodos(newTodos)
+  })
 
   return (
     <div className="App">
-      <ToDoList todos={todos} />
+      <ToDoList todos={todos} toggleTodo={toggleTodo} />
       <input ref={todoNameRef} type={'text'} />
       <button onClick={handleAddTodo}>Add Todo</button>
-      <button>Clear todos</button>
-      <div>0 left todos</div>
+      <button onClick={handleClearTodos}>Clear todos</button>
+      <div>{todos.filter(todo => !todo.complete).length} left todos</div>
     </div>
   );
 }
